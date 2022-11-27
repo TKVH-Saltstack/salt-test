@@ -1,10 +1,11 @@
 base:
   '*':
+    - saltminion
     - users 
     - ohmyzsh
     - tools
+  '*workshop*':
     - kubetools
     - hashicorptools
-    - saltminion
   '*saltmaster*':
     - saltmaster
