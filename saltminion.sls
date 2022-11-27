@@ -19,14 +19,12 @@ saltminion_create_minionconf:
     - name: /etc/salt/minion.d/minion.conf
 
 saltminion_install_minionconf:
-  file.keyvalue:
+  file.managed:
     - name: /etc/salt/minion.d/minion.conf
-    - key_values:
-        master: '192.168.1.139'
-        startup_states: 'highstate'
-        master_finger: '2a:c8:d7:bf:f5:24:4d:e2:c4:7c:20:39:2e:83:30:13:5d:e4:f0:d9:f4:f1:8e:da:14:8a:32:13:0f:5c:fc:1c'
-    - separator: ': '
-    - append_if_not_found: True
+    - contents: |
+        master: 192.168.1.139
+        startup_states: highstate
+        master_finger: 2a:c8:d7:bf:f5:24:4d:e2:c4:7c:20:39:2e:83:30:13:5d:e4:f0:d9:f4:f1:8e:da:14:8a:32:13:0f:5c:fc:1c
     - require:
       - pkg: saltminion_install_packages
 
