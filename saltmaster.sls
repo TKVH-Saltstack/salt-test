@@ -21,7 +21,7 @@ saltmaster_create_masterconf:
 saltmaster_install_masterconf:
   file.managed:
     - name: /etc/salt/master.d/master.conf
-    - content: |
+    - contents: |
         auto_accept: True
         fileserver_backend:
         - gitfs
