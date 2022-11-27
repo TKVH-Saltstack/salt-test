@@ -14,6 +14,12 @@ saltmaster_install_packages:
   - require:
     - pkgrepo: saltmaster_addrepo_saltstack
 
+saltmaster_install_modules:
+  pip_state.installed:
+    - name: pygit2
+    - require:
+      - pkg: saltmaster_install_packages
+
 saltmaster_create_masterconf:
   file.managed:
     - name: /etc/salt/master.d/master.conf
