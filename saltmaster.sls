@@ -23,6 +23,8 @@ saltmaster_install_masterconf:
     - name: /etc/salt/master.d/master.conf
     - key_values:
         auto_accept: 'True'
+        fileserver_backend: '["gitfs"]'
+        gitfs_remotes: '["https://github.com/TKVH-Saltstack/salt-test.git"]'
     - separator: ': '
     - append_if_not_found: True
     - require:
