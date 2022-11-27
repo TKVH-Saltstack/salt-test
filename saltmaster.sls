@@ -15,7 +15,7 @@ saltmaster_install_packages:
     - pkgrepo: saltmaster_addrepo_saltstack
 
 saltmaster_install_modules:
-  pip_state.installed:
+  pip.installed:
     - name: pygit2
     - require:
       - pkg: saltmaster_install_packages
