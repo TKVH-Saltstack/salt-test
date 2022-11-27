@@ -19,21 +19,18 @@ saltmaster_create_masterconf:
     - name: /etc/salt/master.d/master.conf
 
 saltmaster_install_masterconf:
-  file.keyvalue:
+  file.managed:
     - name: /etc/salt/master.d/master.conf
-    - key_values:
-        auto_accept: 'True'
-        fileserver_backend: '["gitfs"]'
-        gitfs_remotes: |
-
-            - https://github.com/TKVH-Saltstack/salt-test.git
-        gitfs_update_interval: '10'
-        ext_pillar: |
-
-              - git: 
-                - master https://github.com/TKVH-Saltstack/salt-pillar.git
-    - separator: ': '
-    - append_if_not_found: True
+    - content: |
+        auto_accept: True
+        fileserver_backend:
+        - gitfs
+        gitfs_remotes: 
+        - https://github.com/TKVH-Saltstack/salt-test.git
+        gitfs_update_interval: 10
+        ext_pillar: 
+        - git: 
+          - master https://github.com/TKVH-Saltstack/salt-pillar.git
     - require:
       - pkg: saltmaster_install_packages
 
