@@ -24,7 +24,7 @@ saltminion_install_minionconf:
     - key_values:
         master: '192.168.1.139'
         startup_states: 'highstate'
-        master_finger: 'f6:8f:93:f8:bd:b8:29:38:93:3a:bc:a8:f8:da:10:01:7d:1f:c4:2a:ea:14:cd:bc:d8:be:17:44:c0:1c:79:79'
+        master_finger: '2a:c8:d7:bf:f5:24:4d:e2:c4:7c:20:39:2e:83:30:13:5d:e4:f0:d9:f4:f1:8e:da:14:8a:32:13:0f:5c:fc:1c'
     - separator: ': '
     - append_if_not_found: True
     - require:
