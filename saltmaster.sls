@@ -24,9 +24,13 @@ saltmaster_install_masterconf:
     - key_values:
         auto_accept: 'True'
         fileserver_backend: '["gitfs"]'
-        gitfs_remotes: '["https://github.com/TKVH-Saltstack/salt-test.git"]'
+        gitfs_remotes: |
+
+            - https://github.com/TKVH-Saltstack/salt-test.git
         gitfs_update_interval: '10'
-        ext_pillar: '[git: [https://gitserver/git-pillar.git]]'
+        ext_pillar: |
+
+              - git: master https://github.com/TKVH-Saltstack/salt-pillar.git
     - separator: ': '
     - append_if_not_found: True
     - require:
